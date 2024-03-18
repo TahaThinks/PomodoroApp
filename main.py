@@ -17,5 +17,14 @@ LONG_BREAK_MIN = 20
 
 # ---------------------------- UI SETUP ------------------------------- #
 window = Tk()
+window.title("Taha Pomodoro")
+
+
+
+
+
+
+
+
 
 window.mainloop()
