@@ -48,6 +48,11 @@ def count_down(count):
         window.after(1000, count_down, count - 1)
     else:
         start_timer()
+        marks = ""
+        work_session = math.floor(reps/2)
+        for rep in range(work_session):
+            marks += "✅"
+            checkmark_label.config(text=marks)
 
 
 # ---------------------------- UI SETUP ------------------------------- #
@@ -75,7 +80,7 @@ reset_button = Button(text="Reset", font=(FONT_NAME, 14, "bold"), highlightthick
 reset_button.grid(row=2, column=2)
 
 # Add Checkmark Label
-checkmark_label = Label(text="✅", fg=GREEN, bg=YELLOW, font=(14))
+checkmark_label = Label(fg=GREEN, bg=YELLOW, font=(14))
 checkmark_label.grid(row=3, column=1)
 
 window.mainloop()
