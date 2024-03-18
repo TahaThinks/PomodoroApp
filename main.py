@@ -21,6 +21,10 @@ window = Tk()
 window.title("Taha Pomodoro")
 window.config(padx=100, pady=50, bg=YELLOW)
 
+# Add Timer Label
+timer_label = Label(window, text="Timer", font=(FONT_NAME, 45, "bold"), fg=GREEN, bg=YELLOW)
+timer_label.pack()
+
 # Add the Image
 canvas = Canvas(width=200, height=224, bg=YELLOW, highlightthickness=0)
 tomato_img = PhotoImage(file="tomato.png")
