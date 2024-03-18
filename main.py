@@ -36,10 +36,13 @@ canvas.grid(row=1, column=1)
 start_button = Button(text="Start", font=(FONT_NAME, 14, "bold"))
 start_button.grid(row=2, column=0)
 
+# Add Checkmark Label
+checkmark_label = Label(text="✅", font=(14))
+checkmark_label.grid(row=2, column=1)
+
 # Add Reset Button
 reset_button = Button(text="Reset", font=(FONT_NAME, 14, "bold"))
-reset_button.grid(row=2, column=3)
-
+reset_button.grid(row=2, column=2)
 
 
 
