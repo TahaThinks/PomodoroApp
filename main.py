@@ -8,9 +8,10 @@ GREEN = "#9bdeac"
 YELLOW = "#f7f5dd"
 FONT_NAME = "Courier"
 WORK_MIN = 1
-SHORT_BREAK_MIN = 5
-LONG_BREAK_MIN = 20
+SHORT_BREAK_MIN = 1
+LONG_BREAK_MIN = 1
 reps = 0
+CONVERTER = 5
 
 
 # ---------------------------- TIMER RESET ------------------------------- # 
@@ -20,11 +21,14 @@ def start_timer():
     global reps
     reps += 1
     if reps in [1, 3, 5, 7]:
-        count_down(WORK_MIN * 60)
+        count_down(WORK_MIN * CONVERTER)
+        timer_label.config(text="Work")
     elif reps in [2, 4, 6]:
-        count_down(SHORT_BREAK_MIN * 60)
+        count_down(SHORT_BREAK_MIN * CONVERTER)
+        timer_label.config(text="Break", fg=PINK)
     elif reps == 8:
-        count_down(LONG_BREAK_MIN * 60)
+        timer_label.config(text="Long Break", fg=RED)
+        count_down(LONG_BREAK_MIN * CONVERTER)
 
 
 # ---------------------------- COUNTDOWN MECHANISM ------------------------------- #
