@@ -16,6 +16,11 @@ LONG_BREAK_MIN = 20
 
 # ---------------------------- COUNTDOWN MECHANISM ------------------------------- # 
 
+def count_down(count=5):
+    canvas.itemconfig(timer_text, text=count)
+    if count > 0:
+        window.after(1000, count_down, count-1)
+
 # ---------------------------- UI SETUP ------------------------------- #
 window = Tk()
 window.title("Taha Pomodoro")
@@ -29,11 +34,11 @@ timer_label.grid(row=0, column=1)
 canvas = Canvas(width=200, height=224, bg=YELLOW, highlightthickness=0)
 tomato_img = PhotoImage(file="tomato.png")
 canvas.create_image(100, 112, image=tomato_img)
-canvas.create_text(100, 130, text="00:00", fill="white", font=(FONT_NAME, 35, "bold"))
+timer_text = canvas.create_text(100, 130, text="00:00", fill="white", font=(FONT_NAME, 35, "bold"))
 canvas.grid(row=1, column=1)
 
 # Add Start Button
-start_button = Button(text="Start", font=(FONT_NAME, 14, "bold"), highlightthickness=0)
+start_button = Button(text="Start", font=(FONT_NAME, 14, "bold"), highlightthickness=0, command=count_down)
 start_button.grid(row=2, column=0)
 
 # Add Reset Button
